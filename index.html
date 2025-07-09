@@ -9,7 +9,7 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: url('https://images.pexels.com/photos/6805412/pexels-photo-6805412.jpeg') no-repeat center center/cover;
+      background: url('https://images.pexels.com/photos/974911/pexels-photo-974911.jpeg') no-repeat center center/cover;
       color: #1a1a1a;
     }
     .overlay {
@@ -107,7 +107,6 @@
       background-color: #f2e9f4;
     }
     .popup {
-      display: none;
       position: fixed;
       top: 50%;
       left: 50%;
@@ -119,11 +118,12 @@
       z-index: 1000;
       max-width: 90%;
       opacity: 0;
+      visibility: hidden;
       transition: all 0.4s ease-in-out;
     }
     .popup.show {
-      display: block;
       opacity: 1;
+      visibility: visible;
       transform: translate(-50%, -50%) scale(1);
     }
     .popup h2 {
@@ -141,10 +141,13 @@
       top: 0; left: 0; right: 0; bottom: 0;
       background-color: rgba(0,0,0,0.5);
       z-index: 999;
-      display: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
     }
     .popup-overlay.show {
-      display: block;
+      opacity: 1;
+      visibility: visible;
     }
     footer {
       margin-top: 3rem;
@@ -207,7 +210,7 @@
     </div>
   </div>
 
-  <div class="popup-overlay" id="popup-overlay"></div>
+  <div class="popup-overlay" id="popup-overlay" onclick="closePopup()"></div>
 
   <div class="popup" id="popup-cum">
     <span class="popup-close" onclick="closePopup()">&times;</span>
