@@ -15,37 +15,39 @@
     .overlay {
       background: rgba(255, 255, 255, 0.85);
       min-height: 100vh;
+      padding: 4rem 1.5rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
-      padding: 2rem;
     }
     .container {
-      max-width: 700px;
-      text-align: center;
+      max-width: 800px;
       background: #ffffffcc;
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
-      padding: 3rem 2rem;
+      backdrop-filter: blur(12px);
+      border-radius: 20px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+      padding: 4rem 2rem;
       animation: fadeIn 1.5s ease;
     }
     h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
+      font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
+      text-align: center;
     }
     p {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       margin-bottom: 2rem;
-      color: #444;
+      color: #333;
+      text-align: center;
     }
-    form {
+    .email-section {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 1rem;
+      margin-bottom: 3rem;
     }
     input[type="email"] {
       padding: 0.75rem 1rem;
@@ -65,12 +67,29 @@
       color: white;
       cursor: pointer;
       transition: background 0.3s ease;
+      letter-spacing: 0.5px;
     }
     button:hover {
       background: linear-gradient(135deg, #af87bc, #745c8a);
     }
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+    .feature-box {
+      background-color: #fefefe;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    }
+    .feature-box h3 {
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 0.5rem;
+    }
     .sections {
-      margin-top: 3rem;
+      margin-top: 2rem;
       display: flex;
       flex-direction: column;
       gap: 1rem;
@@ -96,16 +115,26 @@
       background: #fff;
       padding: 2rem;
       border-radius: 16px;
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
       z-index: 1000;
       max-width: 90%;
       opacity: 0;
-      transition: all 0.3s ease-in-out;
+      transition: all 0.4s ease-in-out;
     }
     .popup.show {
       display: block;
       opacity: 1;
       transform: translate(-50%, -50%) scale(1);
+    }
+    .popup h2 {
+      font-family: 'Playfair Display', serif;
+    }
+    .popup-close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.2rem;
+      cursor: pointer;
     }
     .popup-overlay {
       position: fixed;
@@ -117,17 +146,53 @@
     .popup-overlay.show {
       display: block;
     }
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #666;
+    }
+    footer a {
+      color: #8a76a1;
+      text-decoration: none;
+    }
+    footer a:hover {
+      text-decoration: underline;
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
   </style>
 </head>
 <body>
   <div class="overlay">
     <div class="container">
-      <h1>În curând: Cea mai elegantă listă de cadouri din România</h1>
-      <p>Construiește-ți wishlist-ul perfect, trimite-l prietenilor și primește doar cadourile dorite. Fără surprize neplăcute.</p>
-      <form action="https://outlook.us16.list-manage.com/subscribe/post?u=4b6dfff1f14e206e5ad646683&amp;id=0a91f6cbe4&amp;f_id=00f0a6e0f0" method="post" target="_blank">
+      <h1>În curând: Cel mai elegant sistem de wishlist din România</h1>
+      <p>Un mod modern, simplu și frumos de a primi exact cadourile pe care ți le dorești.</p>
+      <form class="email-section" action="https://outlook.us16.list-manage.com/subscribe/post?u=4b6dfff1f14e206e5ad646683&amp;id=0a91f6cbe4&amp;f_id=00f0a6e0f0" method="post" target="_blank">
         <input type="email" name="EMAIL" placeholder="Introdu adresa ta de email" required />
-        <button type="submit">Anunță-mă la lansare</button>
+        <button type="submit">Vreau să fiu printre primii</button>
       </form>
+
+      <div class="features">
+        <div class="feature-box">
+          <h3>🎁 Creezi liste de dorințe personalizate</h3>
+          <p>Adaugi ce vrei, de unde vrei – linkuri, poze, detalii. Ușor și elegant.</p>
+        </div>
+        <div class="feature-box">
+          <h3>🔗 Partajezi printr-un link</h3>
+          <p>Trimite lista prietenilor sau familiei. Nu e nevoie ca ei să aibă cont.</p>
+        </div>
+        <div class="feature-box">
+          <h3>✅ Rezervări fără dubluri</h3>
+          <p>Ei pot marca ce vor cumpăra. Tu nu vezi ce aleg, dar nici nu primești dubluri.</p>
+        </div>
+        <div class="feature-box">
+          <h3>📆 Perfect pentru orice ocazie</h3>
+          <p>Zile de naștere, nuntă, baby shower, Crăciun – sau doar pentru că meriți ceva frumos.</p>
+        </div>
+      </div>
 
       <div class="sections">
         <button class="section-btn" onclick="openPopup('cum')">Cum funcționează?</button>
@@ -135,6 +200,10 @@
         <button class="section-btn" onclick="openPopup('pentru')">Pentru ce ocazii?</button>
         <button class="section-btn" onclick="openPopup('beneficii')">Beneficii pentru susținători timpurii</button>
       </div>
+
+      <footer>
+        © 2025 Gift Registry · <a href="mailto:hello@yourdomain.ro">Contact</a> · <a href="#">Termeni</a> · <a href="#">Confidențialitate</a>
+      </footer>
     </div>
   </div>
 
