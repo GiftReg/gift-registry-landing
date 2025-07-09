@@ -69,15 +69,6 @@
     button:hover {
       background: linear-gradient(135deg, #af87bc, #745c8a);
     }
-    .mockup {
-      margin-top: 3rem;
-      max-width: 100%;
-      border-radius: 20px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-      border: 1px solid #eaeaea;
-      animation: fadeIn 2s ease 0.5s forwards;
-      opacity: 0;
-    }
     .sections {
       margin-top: 3rem;
       display: flex;
@@ -126,10 +117,6 @@
     .popup-overlay.show {
       display: block;
     }
-    @keyframes fadeIn {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
 <body>
@@ -141,7 +128,51 @@
         <input type="email" name="EMAIL" placeholder="Introdu adresa ta de email" required />
         <button type="submit">Anunță-mă la lansare</button>
       </form>
+
+      <div class="sections">
+        <button class="section-btn" onclick="openPopup('cum')">Cum funcționează?</button>
+        <button class="section-btn" onclick="openPopup('deCe')">De ce să te înscrii?</button>
+        <button class="section-btn" onclick="openPopup('pentru')">Pentru ce ocazii?</button>
+        <button class="section-btn" onclick="openPopup('beneficii')">Beneficii pentru susținători timpurii</button>
+      </div>
     </div>
   </div>
+
+  <div class="popup-overlay" id="popup-overlay"></div>
+
+  <div class="popup" id="popup-cum">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2>Cum funcționează?</h2>
+    <p>Îți creezi o listă de dorințe, adaugi linkuri către cadourile dorite și o trimiți prietenilor. Ei pot rezerva un cadou, astfel încât să nu primești dubluri.</p>
+  </div>
+  <div class="popup" id="popup-deCe">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2>De ce să te înscrii?</h2>
+    <p>Primești acces prioritar la lansare, poți influența dezvoltarea platformei și vei beneficia de funcții exclusive pentru utilizatorii timpurii.</p>
+  </div>
+  <div class="popup" id="popup-pentru">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2>Pentru ce ocazii?</h2>
+    <p>Listă de cadouri pentru zile de naștere, nuntă, botez, mutare în casă nouă, baby shower, Crăciun sau orice alt moment special din viața ta.</p>
+  </div>
+  <div class="popup" id="popup-beneficii">
+    <span class="popup-close" onclick="closePopup()">&times;</span>
+    <h2>Beneficii pentru susținători timpurii</h2>
+    <p>Acces gratuit pe viață la planul premium, badge special în aplicație, posibilitatea de a testa primele funcționalități.</p>
+  </div>
+
+  <script>
+    function openPopup(section) {
+      document.getElementById('popup-overlay').classList.add('show');
+      const popup = document.getElementById('popup-' + section);
+      popup.classList.add('show');
+    }
+
+    function closePopup() {
+      document.getElementById('popup-overlay').classList.remove('show');
+      const popups = document.querySelectorAll('.popup');
+      popups.forEach(popup => popup.classList.remove('show'));
+    }
+  </script>
 </body>
 </html>
